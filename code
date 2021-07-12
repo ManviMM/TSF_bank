@@ -1,0 +1,133 @@
+ <a href="transfer.php?name=">
+                <button class="tranferbtn" type="button" name="transferbtn" style="cursor: pointer;">Transfer</button>
+            </a>
+ -->    
+ <datalist id="Names">
+                    <option value="" disabled selected></option>
+                    <?php 
+                        include'config.php';
+                        $id=$_GET['id'];
+                        $query="SELECT * FROM data where id!='$id';";
+                        $result=mysqli_query($conn,$query);
+                        while($rows=mysqli_fetch_assoc($result)){  ?>
+                                <option value=" <?php echo $rows['id'];?>" > <?php echo $rows['name'];?> </option>
+                        <?php
+                        }
+                    ?>
+</datalist>
+
+ <div>
+            <button class="transferbtn" style="cursor: pointer;">Transfer</button>
+            
+            <!--- The Modal --->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form>
+                    <label for="to">Send To :</label>
+                    <input type="text" name="nameTo" placeholder="Enter Name" required>
+                    <br>
+                    <br>
+                    <label for="amount">AMOUNT :</label>
+                    <input type="text" name="amount" placeholder="Enter Amount" required>
+                    <br>
+                    <br>
+                    <button name="Confirm" class="Confirm" value="Confirm" type="Confirm">Confirm</button>
+                    </form>
+                </div>
+            </div>
+</div>
+
+ <script>
+                        // Get the modal
+                        var modal = document.getElementById("myModal");
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("transferbtn");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                        modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                        modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                        }
+                        </script>
+
+
+<?php 
+      include 'config.php';
+      if(isset($_GET['confirm'])){
+
+        $from = $_GET['id'];
+        $to = $_GET['nameTo'];
+        $amount = $_GET['amount'];
+        
+        $query  = "select * from data where id = '$from'";
+        //exit($query);
+        $result1 = mysqli_query($conn,$query);
+        $sender = mysqli_fetch_assoc($result1);
+
+        
+        $query  = "select * from data where name = '$to'";
+        $result2 = mysqli_query($conn,$query);
+        $receiver = mysqli_fetch_assoc($result2);
+
+        if($amount<0){?>
+
+          <script type="text/javascript">
+              alert("Please enter a valid amount!(should be greater than 0)");
+          </script>
+        <?php
+        }
+
+        else if($amount>$sender['balance']){ ?>
+          <script type="text/javascript">
+              alert("Insufficient Balance. Please try again!");
+          </script>
+        <?php
+        }
+
+        else if($amount==0){ ?>
+          <script type="text/javascript">
+              alert("Please enter amount more than 0!");
+          </script>
+        <?php
+        }
+        
+        else{
+          $decreasedbalance = $sender['balance'] - $amount;
+          $sql = "UPDATE data set balance= '$decreasedbalance' where name = '$from'";
+          mysqli_query($conn,$sql);
+
+          $increasedbalance = $receiver['balance'] + $amount;
+          $sql = "UPDATE data set balance= '$increasedbalance' where name = '$to'";
+          mysqli_query($conn,$sql);
+
+          //add to transcation table
+          $nameSender = $sender['name'];
+          $nameReceiver = $receiver['name'];
+          $sql = "INSERT INTO transcation(`sender`,`receiver`,`balance`)VALUES('$nameSender','$nameReceiver','$amount');";
+          //exit($sql);
+          $query = mysqli_query($conn,$sql);
+
+          if($query){
+            echo "<script> alert('Transaction Successful');
+                            window.location='userprofile.php';
+                  </script>";}
+
+        }
+      }
+    ?>

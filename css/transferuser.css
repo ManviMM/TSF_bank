@@ -1,0 +1,49 @@
+.section-transfer{
+    margin: 40px 400px;
+    background-color: #0570db;
+}
+
+.transferCard{
+    width: 600px;
+    height: 500px;
+    color: #fff;
+}
+
+.transferCard h1{
+    margin-top: 30px;
+    margin-bottom:-80px;
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+form{
+    margin-top: 70px;
+}
+
+.transferCard label{
+    font-size: 18px;
+}
+
+.transferCard input{
+    text-decoration: none;
+    border: 0;
+    border-bottom: 1px solid #0570db;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.transferbtn{
+    margin-top: 30px;
+    margin-left: 70px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: #0570db;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 8px;
+    border: 2px solid #FFF;
+}

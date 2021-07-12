@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family:'Lato',sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+h1,h2{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+p{
+    margin: 10px 0;
+}
+
+img{
+    width: 100%;
+} 
+
+/*____ UTILITES ______*/
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns:4fr 2fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 50px;
+}
+
+
+
+/*____ NAV BAR ______*/
+.navbar{
+    background-color: #0570db;
+    color: #fff;
+    height: 70px;
+
+}
+
+.navbar h1{
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.navbar .flex{
+    justify-content: space-between;
+}
+
+.navbar ul{
+    display: flex;
+}
+
+.navbar a{
+    color: #fff;
+    padding: 10px;
+    margin-left: 0 5px;
+}
+
+.navbar a:hover{
+    border-bottom: 2px #f4f4f4 solid;
+}
+
+
+/*____ Introduction ______*/
+.section-introductions{
+    height: 220px;
+    background-color: #0570db;
+    position: relative;
+    padding-top: 25px;
+}
+
+.section-introductions h1{
+    margin: 10px 0;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.section-introductions p{
+    font-style: normal;
+    width: 60%;
+    text-align: justify;
+    color: #fff;
+    font-size: 16px;
+}
+
+/*____ Options ______*/
+.section-options{
+   overflow: visible;
+   margin: 10px 0;
+   height: 350px;
+   
+}
+
+/* .section-options .flex{
+    justify-content: space-between;
+} */
+.section-options .flex{
+    justify-content: space-between;
+    align-content: center;
+}
+
+.section-options .card{
+    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
+    transition:transform 0.2s ease-in;
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    margin: 18px 10px 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.section-options img{
+    width: 90px;
+    height: 90px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+.section-options .card:hover{
+    box-shadow: 0 9px 16px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-15px);
+    background-color: #f4f4f4;
+}
+
+.section-options .a{
+    text-align: center;
+    font-size: 30px;
+}
+
+/*___About Us___*/
+.section-aboutus{
+    background-color: #0570db;
+    position: relative;
+    padding: 25px 0;
+    color: #fff;
+    text-align: center;
+    height: 250px;
+}
+
+.section-aboutus h2{
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.section-aboutus p{
+    font-size: 20px;
+    margin-bottom:25px ;
+}
+
+.section-aboutus img{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    justify-self: right;
+}
+
+.section-aboutus .btn{
+    color: #0570db;
+    font-weight: 300;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding: 10px 30px;
+    background: #f4f4f4;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+
+/*___Feedback___*/
+.section-feedback{
+    margin-top: 20px;
+}
+
+.form-card{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: #333;
+}
+
+.form{
+    height: 100%;
+    width: 35%;
+    text-align: center;
+}
+.form h2{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.form .form-control{
+    margin:30px 0;
+}
+
+.form input[type='name'],
+.form input[type='email'],
+.form input[type='feedback']{
+    border: 0;
+    border-bottom: 1px solid #0570db;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+.form .btnsubmit{
+    display: inline-block;
+    color: #fff;
+    font-weight: 300;
+    border-radius: 200px;
+    padding: 10px 30px;
+    background: #0570db;
+    margin-top: 20px;
+}
+
+.social-img{
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+}
+
+/*___Footer___*/
+.footer{
+    margin-top: 20px;
+    background-color: #002240;
+    color: #f4f4f4;
+}
+.footer h1{
+    font-size: 18px;
+}
+.footer .copy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f4f4f4;
+}
+
+.footer ul li a{
+    color: #f4f4f4;
+}
