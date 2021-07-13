@@ -1,8 +1,8 @@
 <?php
     $dbServername="localhost";
-    $dbUsername="id17223940_admin";
-    $dbPassword="Manvi123@tsfintern";
-    $dbDatabase="id17223940_tsfbank";
+    $dbUsername="root";
+    $dbPassword="";
+    $dbDatabase="tsf";
 
     $conn= mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbDatabase);
     if(!$conn){
